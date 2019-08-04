@@ -38,4 +38,12 @@ function defineDerective(obj, key) {
   })
 }
 
-module.exports = observe
+function Vue(options) {
+  if (!(this instanceof Vue)) {
+    return new Vue(options)
+  }
+  // 监听vue.data
+  observe(options.data)
+}
+
+module.exports = Vue

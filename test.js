@@ -1,11 +1,13 @@
-const observe = require('./observe')
+const Vue = require('./observe')
 
 let obj = {
   name: 'bibidu',
   age: 12
 }
 
-observe(obj)
+Vue({
+  data: obj
+})
 
 
 console.log(obj.name);
