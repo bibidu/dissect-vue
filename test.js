@@ -1,21 +1,22 @@
 const Vue = require('./observe')
 
-let obj = {
-  name: 'bibidu',
-  age: 12
-}
 
 Vue({
-  data: obj
+  data: {
+    name: 'bibidu',
+    age: 12
+  },
+  computed: {
+    compose() {
+      console.log('aa');
+      return this.name + ' ' + this.age
+    }
+  },
+  mounted() {
+    console.log('mounted');
+    console.log(this.compose);
+    this.name = 'UPDATED NAME'
+    this.age = 23
+    console.log(this.compose);
+  }
 })
-
-
-console.log(obj.name);
-
-obj.name = {
-  home: 'xiaodu',
-  school: 'bibidu'
-}
-
-console.log(obj.name);
-console.log(obj.name.home);
